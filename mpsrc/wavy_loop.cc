@@ -253,8 +253,8 @@ void loop_impl::thread_main()
 
 //m_poll_thread = 0;  // FIXME signal_stop
 			m_pollable = true;
-			m_cond.signal();
 		}
+		m_cond.signal();
 
 		ke = m_backlog[m_off++];
 
@@ -362,8 +362,8 @@ void loop_impl::run_once(pthread_scoped_lock& lk, bool block)
 		m_num = num;
 
 		m_pollable = true;
-		m_cond.signal();
 	}
+	m_cond.signal();
 
 	ke = m_backlog[m_off++];
 
